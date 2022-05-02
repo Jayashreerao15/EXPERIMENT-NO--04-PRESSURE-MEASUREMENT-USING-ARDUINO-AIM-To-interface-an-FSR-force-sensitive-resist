@@ -1,6 +1,5 @@
 # EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
 
-
 ## AIM: 
 To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
  
@@ -11,22 +10,14 @@ To interface an FSR(force sensitive resistor) and scale the output voltage obtai
 4.	USB Interfacing cable 
 5.	Connecting wires 
 
-
 ### THEORY: 
 FSRs are basically a resistor that changes its resistive value (in ohms Ω) depending on how much it is pressed. These sensors are fairly low cost, and easy to use. They also vary some from sensor to sensor perhaps 10%. FSR's resistance changes as more pressure is applied. When there is no pressure, the sensor looks like an infinite resistor (open circuit), as the pressure increases, the resistance goes down. This graph indicates approximately the resistance of the sensor at different force measurements.
  
-
 ![image](https://user-images.githubusercontent.com/36288975/163532939-d6888ae1-4068-4d83-86a7-fc4c32d5179e.png)
 
 ### FIGURE 01 GRAPH OF FORCE vs RESISTANCE **
 
-
-
-
 ![image](https://user-images.githubusercontent.com/36288975/163532957-82d57567-a1c3-48c5-8a87-7ea66d6fca49.png)
-
-
-
 
 ### FIGURE 02 FORCE SENSITIVE RESITOR FOIL DISC TYPE  
 
@@ -46,21 +37,11 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 ****That is, the voltage is proportional to the inverse of the FSR resistance.
 
 
-
-
-
-
-
-
-
-
 ![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
-
-
 
 ### FIGURE-03 CIRCUIT DIAGRAM
 
-
+![image](https://user-images.githubusercontent.com/74660507/166241830-6732e218-3192-4264-9679-f640c08ecc65.png)
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -74,45 +55,37 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 9.	Ensure safety before powering up the device 
 10.	Plot the graph for the output voltage vs the resistance 
 
-
 ### PROGRAM 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ ```c
+ int force = 0;
 
-![image](https://user-images.githubusercontent.com/36288975/163533136-5f8d00f2-8456-4d46-b243-d94d45f83eee.png)
+void setup()
+{
+  pinMode(A3, INPUT);
+  pinMode(8, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  force = analogRead(A3);
+  int f = map(force,0,512,0,10);
+  Serial.print("Force = ");
+  Serial.println(f);
+  analogWrite(8,force);
+  delay(1000); 
+  
+}
+```
+ ### Output:
+ 
+![image](https://user-images.githubusercontent.com/74660507/166242506-a3189856-9c33-4d7c-be65-ec3bce063b49.png)
 
 ### TABLE -02 OUTPUT VOLTAGES AND CHANGE IN RESISTANCES
 
+![image](https://user-images.githubusercontent.com/74660507/166242572-92e7cb05-41c6-4057-b6a5-5cdf22a7b5a4.png)
 
-
-
-
-
-
-
-
-
-
-
-
+![table](https://user-images.githubusercontent.com/74660507/166247039-af7aa527-2b93-4a98-a1ff-659f7f07aaa1.jpeg)
 
 
 ### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
