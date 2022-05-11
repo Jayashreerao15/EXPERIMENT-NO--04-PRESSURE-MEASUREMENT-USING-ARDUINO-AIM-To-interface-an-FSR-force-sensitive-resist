@@ -85,7 +85,7 @@ void loop()
 
 ![image](https://user-images.githubusercontent.com/74660507/166242572-92e7cb05-41c6-4057-b6a5-5cdf22a7b5a4.png)
 
-![table](https://user-images.githubusercontent.com/74660507/166247039-af7aa527-2b93-4a98-a1ff-659f7f07aaa1.jpeg)
+![image](https://user-images.githubusercontent.com/74660507/167768105-fd0493d3-3a00-4a1e-9e68-82523fcfa7cb.png)
 
 
 ### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
